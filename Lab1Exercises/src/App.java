@@ -107,7 +107,7 @@ class ComplexNumber{
              }
             ComplexNumber other = (ComplexNumber) otherNr;
             ComplexNumber result = new ComplexNumber(this.realPart*other.realPart -this.imagPart*other.imagPart , 
-            this.realPart*other.imagPart -this.imagPart*other.realPart);
+            this.realPart*other.imagPart +this.imagPart*other.realPart);
              return  result.toString() ;    
     }
 

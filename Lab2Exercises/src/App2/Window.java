@@ -26,9 +26,7 @@ public class Window  extends JFrame implements Observer  {
                        this.bars.add(pb);
                  }
       }
-    public void setProgressValue(int id,int val){
-                bars.get(id).setValue(val);
-      }
+ 
       
 
     @Override

@@ -16,8 +16,8 @@ public class Window extends JFrame implements Observer {
     JPanel player;
     JPanel goal;
 
-    int playerY=365;
-    int playerSpeed = 5;
+    int playerY=370;
+    int playerSpeed = 4;
     public Window() {
         setLayout(null);
         setSize(450,450);
@@ -29,7 +29,7 @@ public class Window extends JFrame implements Observer {
 
         for(int i=0 ;i<n; i++){  //setSquares
             JPanel square=new JPanel();
-            square.setLocation(45+i*80,0);
+            square.setLocation(55+i*80,0);
             square.setSize(45,45);
             square.setBackground(Color.RED);
             square.setVisible(true);
@@ -54,6 +54,7 @@ public class Window extends JFrame implements Observer {
         player.setLocation(5,playerY);
         player.setSize(30,30);
         player.setBackground(Color.BLUE);
+        player.add(new JLabel("P"));
         player.setVisible(true);
         this.add(player);
 
@@ -69,10 +70,9 @@ public class Window extends JFrame implements Observer {
         this.addKeyListener(new CustomeKeyListener());
     }
 
-
-    public boolean collision(int firstX,int firstY, int firstWidth, int firstHeight, int secondX,int secondY, int secondWidth, int secondHeight){
-        //int firstX=player.getX(), firstY=player.getY(), firstWidth =  player.getWidth(), firstHeight=player.getHeight(); 
-       // int secondX =player.getX(),  secondY =square.getY(),  secondWidth= square.getWidth(), secondHeight=square.getHeight();
+     public boolean collision(JPanel player, JPanel square){
+        int firstX=player.getX(), firstY=player.getY(), firstWidth =  player.getWidth(), firstHeight=player.getHeight(); 
+        int secondX =square.getX(),  secondY =square.getY(),  secondWidth= square.getWidth(), secondHeight=square.getHeight();
         if(firstX>=secondX && firstX<=secondX+secondWidth && firstY>=secondY && firstY<=secondY+secondHeight)
             return true;
          else if(firstX+firstWidth>=secondX && firstX+firstWidth<=secondX+secondWidth && firstY>=secondY && firstY<=secondY+secondHeight)
@@ -90,8 +90,7 @@ public class Window extends JFrame implements Observer {
 
         for(int i=0;i<squares.size();i++){
             JPanel square = squares.get(i); 
-             //collision(player,square)
-            if(collision(player.getX(), playerY, player.getWidth(), player.getHeight(), square.getX(), square.getY(), square.getWidth(), square.getHeight())) {   
+             if(collision(player,square)) {
                 player.setLocation(5, playerY);
                 int oldLives = Integer.parseInt(lives.getText().split(" ")[1]);
                 lives.setText("Lives: " + (oldLives - 1));
@@ -127,7 +126,7 @@ public class Window extends JFrame implements Observer {
                 if(player.getX() >= 450){
                     player.setLocation(5,playerY);
                     String oldScore = score.getText().split(" ")[1];
-                    score.setText("Score: "+ (Integer.parseInt(oldScore)+1));
+                    score.setText("Score: "+ (Integer.parseInt(oldScore)+4));
                 }
             }
 

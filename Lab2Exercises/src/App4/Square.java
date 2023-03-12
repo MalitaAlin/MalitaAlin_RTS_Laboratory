@@ -5,16 +5,15 @@ import java.util.Random;
 
 public class Square extends Observable implements Runnable{
     private int id;
-
-    private volatile static boolean endRun;
-
-    private int processorLoad;
-
-    private int invSpeed;
+    private int x,y;
 
     Thread thread;
+    private  static boolean endRun;
+    private int processorLoad;
+    private int invSpeed;
 
-    private int x,y;
+
+
 
     public Square(int nr, int processorLoad) {
         this.processorLoad=processorLoad;

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
+
 public class FileService {
 
     String fileName;
@@ -24,17 +25,12 @@ public class FileService {
             in = new BufferedReader(new FileReader(fileName));
          } catch (Exception e) { e.printStackTrace();}
     }
-    public synchronized void write(String msg){
-        Date date = new Date(System.currentTimeMillis());
-        out.println("Date: " + date);
-        out.println("Message: " + msg);
-        out.flush();
+
+    public BufferedReader getIn() {
+        return in;
     }
-    public synchronized String read() throws IOException{
-        String iterator, last="no message to read";
-        while((iterator = in.readLine()) != null){
-            last= new Date(System.currentTimeMillis()) + " - " + iterator;
-        }
-        return last;
+
+    public PrintWriter getOut() {
+        return out;
     }
 }

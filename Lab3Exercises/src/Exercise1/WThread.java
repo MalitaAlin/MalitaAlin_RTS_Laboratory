@@ -3,10 +3,10 @@ package Exercise1;
 import java.io.PrintWriter;
 import java.util.Date;
 
+
 public class WThread extends Thread {
 
     FileService service;
-
     PrintWriter out;
     public WThread(FileService service,PrintWriter out) {
 
@@ -22,7 +22,7 @@ public class WThread extends Thread {
 
                     String.valueOf(Math.round(Math.random() * 100));
 
-            synchronized(this.service){
+            synchronized(this){
                 Date date = new Date(System.currentTimeMillis());
                 out.println("Date: " + date);
                 out.println("Message: " + msg);

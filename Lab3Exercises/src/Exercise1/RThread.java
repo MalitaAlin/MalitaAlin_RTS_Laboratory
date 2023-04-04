@@ -3,6 +3,7 @@ package Exercise1;
 import java.io.BufferedReader;
 import java.sql.Date;
 
+
 public class RThread extends Thread{
 
     FileService service;
@@ -21,7 +22,7 @@ public class RThread extends Thread{
 
             try {
 
-                synchronized (this.service){
+                synchronized (this){
                     String readMsg="no message to read";
                     String iterator;
                     while((iterator = in.readLine()) != null){

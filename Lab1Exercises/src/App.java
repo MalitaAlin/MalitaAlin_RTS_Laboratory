@@ -1,9 +1,24 @@
 import java.lang.reflect.Array;
+import java.util.HashSet;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
+       HashSet oddnr = new HashSet<>();
+       oddnr.add(1);
+       oddnr.add(2);
+       oddnr.add(2);
+       oddnr.add(2);
+       oddnr.add(3);
+    System.out.println(oddnr);
+       
        // Exercise 1  
+       A a = new A();
+      // a.call();
+       B b = new B();
+      // b.call();
+       A ba = new B();
+      // ba.call();
+       ba.acall();
        ComplexNumber nr1 = new ComplexNumber(2, 5);
        ComplexNumber nr2 = new ComplexNumber(4, -1);
         System.out.println("The two complex numbers are: "+nr1.toString() + " and "+nr2.toString());
@@ -113,3 +128,26 @@ class ComplexNumber{
 
 }
 
+class A{
+    int x=1;
+    int z=5;
+    public void call(){
+ System.out.println("A call "+x);
+    }
+    public void acall(){
+        x++;
+        System.out.println(z);
+    }
+}
+
+class B extends A{
+    int x= 2;
+    int y = 3;
+    @Override public void call(){
+       System.out.println("B call "+y );
+    }
+    public void bcall(){
+        x++;
+        System.out.println("x");
+    }
+}

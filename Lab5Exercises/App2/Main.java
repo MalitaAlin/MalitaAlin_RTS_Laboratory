@@ -1,4 +1,4 @@
-package MalitaAlin_RTS_Laboratory.Lab5Exercises.App2;
+package Lab5Exercises.App2;
 
 import java.util.concurrent.Semaphore;
 

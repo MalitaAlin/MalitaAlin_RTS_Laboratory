@@ -1,4 +1,4 @@
-package MalitaAlin_RTS_Laboratory.Lab5Exercises.App3;
+package Lab5Exercises.App3;
 
 import java.util.ArrayList;
 import java.util.List;

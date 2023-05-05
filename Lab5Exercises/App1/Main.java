@@ -1,4 +1,4 @@
-package MalitaAlin_RTS_Laboratory.Lab5Exercises.App1;
+package Lab5Exercises.App1;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
